@@ -8,3 +8,12 @@ Don't forget -binary. Without, your output file (PDF?) will be corrupted.
 
     cd [target_folder]
     for /r %i in (*.p7m) do openssl.exe cms -decrypt -verify -inform DER -in "%~ni.p7m" -noverify -out "%~ni" -binary
+
+# Sign P7M file with openssl
+
+    openssl cms -sign -outform DER -binary -md sha256 -in document.pdf -out document.pdf.p7m -signer your_priv_certs.crt.pem -inkey your_priv_certs.key.pem -noverify -nodetach
+    
+## Batch operation 
+
+    cd [target_folder]
+    for /r %i in (*.pdf) do openssl cms -sign -outform DER -binary -md sha256 -in "%~ni.pdf" -out "%~ni.pdf.p7m" -signer your_priv_certs.crt.pem -inkey your_priv_certs.key.pem -noverify -nodetach
