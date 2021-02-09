@@ -1,5 +1,9 @@
 # Decrypt P7M SSL files with openssl
 
+First, cd to the directory you want to decrypt: 
+
+    cd C:\Users\ciccio\files
+
     openssl.exe cms -decrypt -verify -inform DER -in file.pdf.p7m -noverify -out file.pdf -binary
 
 Don't forget -binary. Without, your output file (PDF?) will be corrupted.
