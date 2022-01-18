@@ -21,3 +21,11 @@ Don't forget -binary. Without, your output file (PDF?) will be corrupted.
 
     cd [target_folder]
     for /r %i in (*.pdf) do openssl cms -sign -outform DER -binary -md sha256 -in "%~ni.pdf" -out "%~ni.pdf.p7m" -signer your_priv_certs.crt.pem -inkey your_priv_certs.key.pem -noverify -nodetach
+
+
+# ImageMagick Crop Image and assembly into PDF
+
+You can screenshot automatically and assembly a png result using for example [screenshot captor](https://www.donationcoder.com/software/mouser/popular-apps/screenshot-captor).
+
+    magick.exe convert -crop "805x1214" input.png cropped_%d.png
+    magick.exe convert -page a4 "cropped_*.png" -quality 100 outfile.pdf
