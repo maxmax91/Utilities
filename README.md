@@ -1,6 +1,6 @@
-# Decrypt P7M SSL files with openssl
+# Remove P7M signature from files with openssl
 
-First, cd to the directory you want to decrypt: 
+First, cd to the directory you want to process: 
 
     cd C:\Users\ciccio\files
 
