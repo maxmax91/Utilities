@@ -29,3 +29,11 @@ You can screenshot automatically and assembly a png result using for example [sc
 
     magick.exe convert -crop "805x1214" input.png cropped_%d.png
     magick.exe convert -page a4 "cropped_*.png" -quality 100 outfile.pdf
+
+
+
+# Winscp
+
+## Replace putty.exe with Windows Terminal using tabs
+
+    wt.exe  -w 0 --title !N plink.exe !U@!@ -i !K -P !#  -t "cd !/ \; /bin/bash --login"
